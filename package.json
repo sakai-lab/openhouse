@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/sakai-lab/openhouse/issues"
   },
-  "homepage": "https://sakai-lab.github.com/openhouse/",
+  "homepage": "http://sakai-lab.github.io/openhouse/",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4",

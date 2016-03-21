@@ -33,6 +33,8 @@ gulp deploy:gh-pages -y YYYY
 
 e.g. `gulp deploy:gh-pages -y 2016`
 
+Please check [here](http://sakai-lab.github.io/openhouse/).
+
 ## Thanks
 
 * https://gist.github.com/hannes-brt/6207507
