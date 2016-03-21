@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sosuke-k/tmp_openhouse.git"
+    "url": "git+https://github.com/sakai-lab/openhouse.git"
   },
   "author": "sosuke-k",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sosuke-k/tmp_openhouse/issues"
+    "url": "https://github.com/sakai-lab/openhouse/issues"
   },
-  "homepage": "https://github.com/sosuke-k/tmp_openhouse#readme",
+  "homepage": "https://sakai-lab.github.com/openhouse/",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4",
