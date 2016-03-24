@@ -247,6 +247,111 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+&lt;script src=&quot;//d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+var width = 780;
+var height = 510;
+var radius = 200;
+var innerRadius = 30;
+
+function createPie(domID, dataset) {
+    var svg = d3.select(domID).append(&quot;svg&quot;)
+        .attr(&quot;width&quot;, width)
+        .attr(&quot;height&quot;, height)
+        .append(&quot;g&quot;)
+        .attr(&quot;transform&quot;, &quot;translate(&quot; + width / 2 + &quot;,&quot; + height / 2 + &quot;)&quot;);
+
+    var arc = d3.svg.arc()
+            .outerRadius(radius)
+            .innerRadius(innerRadius);
+
+    var pie = d3.layout.pie()
+            .sort(null)
+            .value(function(d){ return d.value; });
+
+    var g = svg.selectAll(&quot;.fan&quot;)
+            .data(pie(dataset))
+            .enter()
+            .append(&quot;g&quot;)
+            .attr(&quot;class&quot;, &quot;fan&quot;)
+
+    g.append(&quot;path&quot;)
+        .attr(&quot;d&quot;, arc)
+        .attr(&quot;fill&quot;, function(d){ return d.data.color; })
+
+    g.append(&quot;text&quot;)
+        .attr(&quot;transform&quot;, function(d) { return &quot;translate(&quot; + arc.centroid(d) + &quot;)&quot;; })
+        .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+        .text(function(d) { return d.data.legend; });
+}
+
+&lt;/script&gt;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+var width = 780;
+var height = 510;
+var radius = 200;
+var innerRadius = 30;
+
+function createPie(domID, dataset) {
+    var svg = d3.select(domID).append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    var arc = d3.svg.arc()
+            .outerRadius(radius)
+            .innerRadius(innerRadius);
+
+    var pie = d3.layout.pie()
+            .sort(null)
+            .value(function(d){ return d.value; });
+
+    var g = svg.selectAll(".fan")
+            .data(pie(dataset))
+            .enter()
+            .append("g")
+            .attr("class", "fan")
+
+    g.append("path")
+        .attr("d", arc)
+        .attr("fill", function(d){ return d.data.color; })
+
+    g.append("text")
+        .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+        .style("text-anchor", "middle")
+        .text(function(d) { return d.data.legend; });
+}
+
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -305,7 +410,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
@@ -421,7 +526,7 @@ createPie("#study_junre", dataset);
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
@@ -473,7 +578,7 @@ createPie("#comunication_tool", dataset);
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
@@ -538,7 +643,7 @@ createPie("#programming_language", dataset);
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
@@ -590,7 +695,7 @@ createPie("#cook_junre", dataset);
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
@@ -652,7 +757,7 @@ createPie("#instrument_junre", dataset);
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
@@ -746,6 +851,19 @@ createPie("#alchol_junre", dataset);
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
