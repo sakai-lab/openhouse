@@ -34,29 +34,6 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 <script src="reveal.js/lib/js/html5shiv.js"></script>
 <![endif]-->
 
-<!-- Loading the mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration -->
-
 <!-- Get Font-awesome from cdn -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 
@@ -106,10 +83,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -170,9 +145,11 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
+html {
+  overflow-y: auto;
+}
 .reveal {
   font-size: 160%;
-  overflow-y: scroll;
 }
 .reveal pre {
   width: inherit;
@@ -225,14 +202,6 @@ div.output_prompt {
   /* 5px right shift to account for margin in parent container */
   margin: 5px 5px 0 0;
 }
-div.text_cell.rendered .rendered_html {
-  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
-  overflow-y: hidden;
-}
-a.anchor-link {
-  /* There is still an anchor, we are only hidding it */
-  display: none;
-}
 .rendered_html p {
   text-align: inherit;
 }
@@ -246,26 +215,16 @@ a.anchor-link {
 <body>
 <div class="reveal">
 <div class="slides">
-<section><section>
+<section>
+    <section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-    &lt;script&gt;
-        window.__define = window.define;
-        //window.__require = window.require;
-        window.define = undefined;
-        //window.require = undefined;
-    &lt;/script&gt;
+<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
 &lt;script src=&quot;//d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
-        window.define = window.__define;
-        //window.require = window.__require;
-        window.__define = undefined;
-        //window.__require = undefined;
-    &lt;/script&gt;
 &lt;script&gt;
 var width = 780;
 var height = 510;
@@ -317,19 +276,7 @@ function createPie(domID, dataset) {
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
-    <script>
-        window.__define = window.define;
-        //window.__require = window.require;
-        window.define = undefined;
-        //window.require = undefined;
-    </script>
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script>
-        window.define = window.__define;
-        //window.require = window.__require;
-        window.__define = undefined;
-        //window.__require = undefined;
-    </script>
 <script>
 var width = 780;
 var height = 510;
@@ -375,7 +322,10 @@ function createPie(domID, dataset) {
 </div>
 </div>
 
-</div></section></section><section><section>
+</div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -385,7 +335,10 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div></section></section><section><section>
+</div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -395,6 +348,7 @@ function createPie(domID, dataset) {
 </div>
 </div>
 </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -403,7 +357,8 @@ function createPie(domID, dataset) {
 <h2 id="&#30740;&#31350;&#20998;&#37326;">&#30740;&#31350;&#20998;&#37326;<a class="anchor-link" href="#&#30740;&#31350;&#20998;&#37326;">&#182;</a></h2>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="4">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -412,7 +367,9 @@ function createPie(domID, dataset) {
 <h2 id="&#24773;&#22577;&#12450;&#12463;&#12475;&#12473;">&#24773;&#22577;&#12450;&#12463;&#12475;&#12473;<a class="anchor-link" href="#&#24773;&#22577;&#12450;&#12463;&#12475;&#12473;">&#182;</a></h2>
 </div>
 </div>
-</div></div><div class="fragment">
+</div>
+    </div><div class="fragment" data-fragment-index="5">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -422,7 +379,11 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -432,6 +393,7 @@ function createPie(domID, dataset) {
 </div>
 </div>
 </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -446,6 +408,7 @@ function createPie(domID, dataset) {
 </div>
 </div>
 </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -454,7 +417,8 @@ function createPie(domID, dataset) {
 <h4 id="&#12523;&#12540;&#12488;&#26908;&#32034;&#65281;">&#12523;&#12540;&#12488;&#26908;&#32034;&#65281;<a class="anchor-link" href="#&#12523;&#12540;&#12488;&#26908;&#32034;&#65281;">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="9">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -464,7 +428,9 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -474,7 +440,8 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="11">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -484,7 +451,9 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -493,7 +462,8 @@ function createPie(domID, dataset) {
 <h4 id="&#38899;&#27005;&#12398;&#26908;&#32034;">&#38899;&#27005;&#12398;&#26908;&#32034;<a class="anchor-link" href="#&#38899;&#27005;&#12398;&#26908;&#32034;">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="13">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -503,7 +473,11 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -513,6 +487,7 @@ function createPie(domID, dataset) {
 </div>
 </div>
 </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -527,6 +502,7 @@ function createPie(domID, dataset) {
 </div>
 </div>
 </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -536,7 +512,8 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="17">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -546,7 +523,9 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -556,7 +535,8 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="19">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -566,7 +546,11 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -576,6 +560,7 @@ function createPie(domID, dataset) {
 </div>
 </div>
 </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -589,6 +574,7 @@ function createPie(domID, dataset) {
 </div>
 </div>
 </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -598,7 +584,8 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="23">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -608,7 +595,9 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div>
+    </div><div class="fragment" data-fragment-index="23">
+        
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -617,22 +606,25 @@ function createPie(domID, dataset) {
 <h1 id="&#12300;&#12393;&#12398;&#12487;&#12540;&#12479;&#12434;&#12393;&#12358;&#12420;&#12387;&#12390;&#24847;&#21619;&#12389;&#12369;&#12427;&#12363;&#12301;">&#12300;&#12393;&#12398;&#12487;&#12540;&#12479;&#12434;&#12393;&#12358;&#12420;&#12387;&#12390;&#24847;&#21619;&#12389;&#12369;&#12427;&#12363;&#12301;<a class="anchor-link" href="#&#12300;&#12393;&#12398;&#12487;&#12540;&#12479;&#12434;&#12393;&#12358;&#12420;&#12387;&#12390;&#24847;&#21619;&#12389;&#12369;&#12427;&#12363;&#12301;">&#182;</a></h1>
 </div>
 </div>
-</div></section></section><section><section>
+</div>
+        </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#30740;&#31350;&#20998;&#37326;&#12395;&#12388;&#12356;&#12390;">&#30740;&#31350;&#20998;&#37326;&#12395;&#12388;&#12356;&#12390;<a class="anchor-link" href="#&#30740;&#31350;&#20998;&#37326;&#12395;&#12388;&#12356;&#12390;">&#182;</a></h3>
+<h3 id="&#20998;&#37326;&#21029;&#20870;&#12464;&#12521;&#12501;">&#20998;&#37326;&#21029;&#20870;&#12464;&#12521;&#12501;<a class="anchor-link" href="#&#20998;&#37326;&#21029;&#20870;&#12464;&#12521;&#12501;">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="26">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
 &lt;div id=&quot;study_junre&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   var dataset = [
@@ -671,7 +663,9 @@ createPie("#study_junre", dataset);
 </div>
 </div>
 
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -692,7 +686,8 @@ createPie("#study_junre", dataset);
 
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -701,13 +696,14 @@ createPie("#study_junre", dataset);
 <h3 id="&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#35328;&#35486;&#32232;">&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#35328;&#35486;&#32232;<a class="anchor-link" href="#&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#35328;&#35486;&#32232;">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="29">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
 &lt;div id=&quot;programming_language&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   var dataset = [
@@ -748,7 +744,9 @@ createPie("#programming_language", dataset);
 </div>
 </div>
 
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -757,13 +755,14 @@ createPie("#programming_language", dataset);
 <h3 id="&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#12467;&#12511;&#12517;&#12491;&#12465;&#12540;&#12471;&#12519;&#12531;&#32232;">&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#12467;&#12511;&#12517;&#12491;&#12465;&#12540;&#12471;&#12519;&#12531;&#32232;<a class="anchor-link" href="#&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#12467;&#12511;&#12517;&#12491;&#12465;&#12540;&#12471;&#12519;&#12531;&#32232;">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="31">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
 &lt;div id=&quot;comunication_tool&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   var dataset = [
@@ -802,7 +801,9 @@ createPie("#comunication_tool", dataset);
 </div>
 </div>
 
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -811,7 +812,8 @@ createPie("#comunication_tool", dataset);
 <h3 id="Slack">Slack<a class="anchor-link" href="#Slack">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="33">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -821,7 +823,9 @@ createPie("#comunication_tool", dataset);
 
 </div>
 </div>
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -830,7 +834,8 @@ createPie("#comunication_tool", dataset);
 <h3 id="GitHub">GitHub<a class="anchor-link" href="#GitHub">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="35">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -840,7 +845,9 @@ createPie("#comunication_tool", dataset);
 
 </div>
 </div>
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -849,7 +856,8 @@ createPie("#comunication_tool", dataset);
 <h3 id="&#12503;&#12525;&#12472;&#12455;&#12463;&#12488;&#36914;&#34892;&#20013;-&#65288;&#20104;&#23450;&#65289;">&#12503;&#12525;&#12472;&#12455;&#12463;&#12488;&#36914;&#34892;&#20013; &#65288;&#20104;&#23450;&#65289;<a class="anchor-link" href="#&#12503;&#12525;&#12472;&#12455;&#12463;&#12488;&#36914;&#34892;&#20013;-&#65288;&#20104;&#23450;&#65289;">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="37">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -870,7 +878,11 @@ createPie("#comunication_tool", dataset);
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -880,6 +892,7 @@ createPie("#comunication_tool", dataset);
 </div>
 </div>
 </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -888,7 +901,8 @@ createPie("#comunication_tool", dataset);
 <h3 id="&#24180;&#38291;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;">&#24180;&#38291;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;<a class="anchor-link" href="#&#24180;&#38291;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="40">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -899,20 +913,25 @@ createPie("#comunication_tool", dataset);
 <li>週１のゼミで論文発表がメイン</li>
 </ul>
 <h4 id="&#22799;&#20241;&#12415;">&#22799;&#20241;&#12415;<a class="anchor-link" href="#&#22799;&#20241;&#12415;">&#182;</a></h4><ul>
-<li><strong>夏合宿</strong>が50パーセントの確率であるよ！</li>
+<li>希望があればゼミあるかも。。</li>
+<li>夏合宿が50パーセントの確率であるよ！</li>
 <li>中間発表的な &gt;&gt; <strong>研究テーマ発表</strong></li>
 </ul>
-<h4 id="10~12&#26376;">10~12&#26376;<a class="anchor-link" href="#10~12&#26376;">&#182;</a></h4><ul>
+<h4 id="10~11&#26376;">10~11&#26376;<a class="anchor-link" href="#10~11&#26376;">&#182;</a></h4><ul>
 <li>システムつくったり、実験したり</li>
+</ul>
+<h4 id="12&#26376;">12&#26376;<a class="anchor-link" href="#12&#26376;">&#182;</a></h4><ul>
 <li>論文かいたり</li>
 <li>DEIM(学会)に投稿したりする</li>
 </ul>
-<h4 id="1&#26376;&#12539;2&#26376;">1&#26376;&#12539;2&#26376;<a class="anchor-link" href="#1&#26376;&#12539;2&#26376;">&#182;</a></h4><p>└(┐┘)┌研究!!研究!!└(┐└(┐┘└(┐┘)┌)┌┘)┌ｳｵｵｫﾝ!!!!研究が加速するｳｳｳｳｳｳ三╰( ^o^)╮-=ﾆ= =͟͟͞͞=͟͟͞͞=͟͟͞͞(┐┘)┌ｿﾂﾛｫｵｵｵｵｵｵﾝwwwww</p>
-<p>(✌'ω')✌</p>
+<h4 id="1&#26376;">1&#26376;<a class="anchor-link" href="#1&#26376;">&#182;</a></h4><p>└(┐┘)┌研究!!研究!!└(┐└(┐┘└(┐┘)┌)┌┘)┌ｳｵｵｫﾝ!!!!研究が加速するｳｳｳｳｳｳ三╰( ^o^)╮-=ﾆ= =͟͟͞͞=͟͟͞͞=͟͟͞͞(┐┘)┌ｿﾂﾛｫｵｵｵｵｵｵﾝwwwww</p>
+<h4 id="2&#26376;">2&#26376;<a class="anchor-link" href="#2&#26376;">&#182;</a></h4><p>(✌'ω')✌</p>
 
 </div>
 </div>
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -921,7 +940,8 @@ createPie("#comunication_tool", dataset);
 <h3 id="&#36913;&#21002;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;">&#36913;&#21002;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;<a class="anchor-link" href="#&#36913;&#21002;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="42">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -939,7 +959,9 @@ createPie("#comunication_tool", dataset);
 
 </div>
 </div>
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -948,7 +970,8 @@ createPie("#comunication_tool", dataset);
 <h3 id="&#36942;&#21435;&#12395;&#12354;&#12387;&#12383;&#12452;&#12505;&#12531;&#12488;&#12392;&#12363;">&#36942;&#21435;&#12395;&#12354;&#12387;&#12383;&#12452;&#12505;&#12531;&#12488;&#12392;&#12363;<a class="anchor-link" href="#&#36942;&#21435;&#12395;&#12354;&#12387;&#12383;&#12452;&#12505;&#12531;&#12488;&#12392;&#12363;">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="44">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -969,7 +992,9 @@ createPie("#comunication_tool", dataset);
 
 </div>
 </div>
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -978,13 +1003,14 @@ createPie("#comunication_tool", dataset);
 <h3 id="&#12471;&#12455;&#12501;&#21215;&#38598;">&#12471;&#12455;&#12501;&#21215;&#38598;<a class="anchor-link" href="#&#12471;&#12455;&#12501;&#21215;&#38598;">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="46">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
 &lt;div id=&quot;cook_junre&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   var dataset = [
@@ -1021,7 +1047,9 @@ createPie("#cook_junre", dataset);
 </div>
 </div>
 
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1030,7 +1058,8 @@ createPie("#cook_junre", dataset);
 <h4 id="&#12471;&#12455;&#12501;&#12364;&#26412;&#27671;&#20986;&#12375;&#12383;&#12392;&#12365;">&#12471;&#12455;&#12501;&#12364;&#26412;&#27671;&#20986;&#12375;&#12383;&#12392;&#12365;<a class="anchor-link" href="#&#12471;&#12455;&#12501;&#12364;&#26412;&#27671;&#20986;&#12375;&#12383;&#12392;&#12365;">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="48">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1040,7 +1069,9 @@ createPie("#cook_junre", dataset);
 
 </div>
 </div>
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1049,13 +1080,14 @@ createPie("#cook_junre", dataset);
 <h3 id="&#22909;&#12365;&#12394;&#12362;&#37202;&#12399;&#65311;">&#22909;&#12365;&#12394;&#12362;&#37202;&#12399;&#65311;<a class="anchor-link" href="#&#22909;&#12365;&#12394;&#12362;&#37202;&#12399;&#65311;">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="50">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
 &lt;div id=&quot;alchol_junre&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   var dataset = [
@@ -1094,7 +1126,9 @@ createPie("#alchol_junre", dataset);
 </div>
 </div>
 
-</div></div></section><section>
+</div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1103,13 +1137,14 @@ createPie("#alchol_junre", dataset);
 <h3 id="&#20309;&#12363;&#24382;&#12369;&#12427;&#20154;&#65417;&#65404;">&#20309;&#12363;&#24382;&#12369;&#12427;&#20154;&#65417;&#65404;<a class="anchor-link" href="#&#20309;&#12363;&#24382;&#12369;&#12427;&#20154;&#65417;&#65404;">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="52">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
 &lt;div id=&quot;instrument_junre&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   var dataset = [
@@ -1156,7 +1191,11 @@ createPie("#instrument_junre", dataset);
 </div>
 </div>
 
-</div></div></section></section><section><section>
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1165,71 +1204,81 @@ createPie("#instrument_junre", dataset);
 <h2 id="&#37202;&#20117;&#30740;&#31350;&#23460;&#12398;&#12513;&#12522;&#12483;&#12488;">&#37202;&#20117;&#30740;&#31350;&#23460;&#12398;&#12513;&#12522;&#12483;&#12488;<a class="anchor-link" href="#&#37202;&#20117;&#30740;&#31350;&#23460;&#12398;&#12513;&#12522;&#12483;&#12488;">&#182;</a></h2>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment" data-fragment-index="54">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#12539;&#26178;&#38291;&#12364;&#12383;&#12367;&#12373;&#12435;">&#12539;&#26178;&#38291;&#12364;&#12383;&#12367;&#12373;&#12435;<a class="anchor-link" href="#&#12539;&#26178;&#38291;&#12364;&#12383;&#12367;&#12373;&#12435;">&#182;</a></h2><h2 id="&#12539;&#12392;&#12395;&#12363;&#12367;&#33258;&#30001;">&#12539;&#12392;&#12395;&#12363;&#12367;&#33258;&#30001;<a class="anchor-link" href="#&#12539;&#12392;&#12395;&#12363;&#12367;&#33258;&#30001;">&#182;</a></h2><h2 id="&#12539;&#12469;&#12509;&#12540;&#12488;&#12364;&#25163;&#21402;&#12356;&#65288;&#12399;&#12378;&#12384;&#65289;">&#12539;&#12469;&#12509;&#12540;&#12488;&#12364;&#25163;&#21402;&#12356;&#65288;&#12399;&#12378;&#12384;&#65289;<a class="anchor-link" href="#&#12539;&#12469;&#12509;&#12540;&#12488;&#12364;&#25163;&#21402;&#12356;&#65288;&#12399;&#12378;&#12384;&#65289;">&#182;</a></h2><p>ブラックそう。。。。。。。。。</p>
+<ul>
+<li>docker + hadoop + elasticsearch</li>
+<li>インテリア</li>
+<li>酒井研デジタルライブラリ</li>
+<li>酒井研リポジトリ（ドキュメントをしっかり残して公開？）</li>
+<li>あまたの部活たち・・・</li>
+<li>たぶんやろうと思えば何でもできる</li>
+</ul>
 
 </div>
 </div>
-</div></div></section></section>
+</div>
+    </div></section>
+    </section>
 </div>
 </div>
+
+<script src="reveal.js/lib/js/head.min.js"></script>
+
+<script src="reveal.js/js/reveal.js"></script>
 
 <script>
 
-require(
-    {
-      // it makes sense to wait a little bit when you are loading
-      // reveal from a cdn in a slow connection environment
-      waitSeconds: 15
-    },
-    [
-      "reveal.js/lib/js/head.min.js",
-      "reveal.js/js/reveal.js"
-    ],
+// Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
 
-    function(head, Reveal){
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
 
-        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
+// Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: "reveal.js/lib/js/classList.js", condition: function() { return !document.body.classList; } },
+{ src: "reveal.js/plugin/notes/notes.js", async: true, condition: function() { return !!document.body.classList; } }
+]
+});
+</script>
 
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
 
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-                { src: "reveal.js/lib/js/classList.js",
-                  condition: function() { return !document.body.classList; } },
-                { src: "reveal.js/plugin/notes/notes.js",
-                  async: true,
-                  condition: function() { return !!document.body.classList; } }
-            ]
-        });
-
-        var update = function(event){
-          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
-            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
-          }
-        };
-
-        Reveal.addEventListener('slidechanged', update);
-
-        var update_scroll = function(event){
-          $(".reveal").scrollTop(0);
-        };
-
-        Reveal.addEventListener('slidechanged', update_scroll);
-
-    }
-);
-
+<script>
+Reveal.addEventListener( 'slidechanged', function( event ) {
+  window.scrollTo(0,0);
+  MathJax.Hub.Rerender(event.currentSlide);
+});
 </script>
 
 </body>
