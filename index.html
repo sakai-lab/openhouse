@@ -34,6 +34,29 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 <script src="reveal.js/lib/js/html5shiv.js"></script>
 <![endif]-->
 
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
 <!-- Get Font-awesome from cdn -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 
@@ -83,8 +106,10 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -145,11 +170,9 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-html {
-  overflow-y: auto;
-}
 .reveal {
   font-size: 160%;
+  overflow-y: scroll;
 }
 .reveal pre {
   width: inherit;
@@ -202,6 +225,14 @@ div.output_prompt {
   /* 5px right shift to account for margin in parent container */
   margin: 5px 5px 0 0;
 }
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
 .rendered_html p {
   text-align: inherit;
 }
@@ -215,26 +246,24 @@ div.output_prompt {
 <body>
 <div class="reveal">
 <div class="slides">
-<section>
-    <section>
-    
+<section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
     &lt;script&gt;
-        //window.__define = window.define;
+        window.__define = window.define;
         //window.__require = window.require;
-        //window.define = undefined;
+        window.define = undefined;
         //window.require = undefined;
     &lt;/script&gt;
 &lt;script src=&quot;//d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
     &lt;script&gt;
-        //window.define = window.__define;
+        window.define = window.__define;
         //window.require = window.__require;
-        //window.__define = undefined;
+        window.__define = undefined;
         //window.__require = undefined;
     &lt;/script&gt;
 &lt;script&gt;
@@ -289,16 +318,16 @@ function createPie(domID, dataset) {
 
 <div class="output_html rendered_html output_subarea ">
     <script>
-        //window.__define = window.define;
+        window.__define = window.define;
         //window.__require = window.require;
-        //window.define = undefined;
+        window.define = undefined;
         //window.require = undefined;
     </script>
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script>
-        //window.define = window.__define;
+        window.define = window.__define;
         //window.require = window.__require;
-        //window.__define = undefined;
+        window.__define = undefined;
         //window.__require = undefined;
     </script>
 <script>
@@ -346,10 +375,7 @@ function createPie(domID, dataset) {
 </div>
 </div>
 
-</div></section>
-    </section><section>
-    <section>
-    
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -359,10 +385,7 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div></section>
-    </section><section>
-    <section>
-    
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -372,7 +395,6 @@ function createPie(domID, dataset) {
 </div>
 </div>
 </div></section><section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -381,8 +403,7 @@ function createPie(domID, dataset) {
 <h2 id="&#30740;&#31350;&#20998;&#37326;">&#30740;&#31350;&#20998;&#37326;<a class="anchor-link" href="#&#30740;&#31350;&#20998;&#37326;">&#182;</a></h2>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="4">
-    
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -391,9 +412,7 @@ function createPie(domID, dataset) {
 <h2 id="&#24773;&#22577;&#12450;&#12463;&#12475;&#12473;">&#24773;&#22577;&#12450;&#12463;&#12475;&#12473;<a class="anchor-link" href="#&#24773;&#22577;&#12450;&#12463;&#12475;&#12473;">&#182;</a></h2>
 </div>
 </div>
-</div>
-    </div><div class="fragment" data-fragment-index="5">
-    
+</div></div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -403,25 +422,217 @@ function createPie(domID, dataset) {
 
 </div>
 </div>
-</div>
-    </div></section><section>
-    
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#20998;&#37326;&#21029;&#20870;&#12464;&#12521;&#12501;">&#20998;&#37326;&#21029;&#20870;&#12464;&#12521;&#12501;<a class="anchor-link" href="#&#20998;&#37326;&#21029;&#20870;&#12464;&#12521;&#12501;">&#182;</a></h3>
+<h3 id="1.-IR">1. IR<a class="anchor-link" href="#1.-IR">&#182;</a></h3><h1 id="&#12300;&#24517;&#35201;&#12394;&#12418;&#12398;&#12434;&#35211;&#12388;&#12369;&#12427;&#25216;&#34899;&#12301;">&#12300;&#24517;&#35201;&#12394;&#12418;&#12398;&#12434;&#35211;&#12388;&#12369;&#12427;&#25216;&#34899;&#12301;<a class="anchor-link" href="#&#12300;&#24517;&#35201;&#12394;&#12418;&#12398;&#12434;&#35211;&#12388;&#12369;&#12427;&#25216;&#34899;&#12301;">&#182;</a></h1>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="7">
-    
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#38306;&#36899;&#25216;&#34899;">&#38306;&#36899;&#25216;&#34899;<a class="anchor-link" href="#&#38306;&#36899;&#25216;&#34899;">&#182;</a></h4><ul>
+<li>必要なのかな？？？ &gt;&gt; <strong>評価技術</strong></li>
+<li>どっちがいいだろう？？ &gt;&gt; <strong>ランキングアルゴリズム</strong></li>
+<li>どれがデータだ？？？ &gt;&gt; <strong>データマイニング</strong>, <strong>自然言語処理</strong></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#12523;&#12540;&#12488;&#26908;&#32034;&#65281;">&#12523;&#12540;&#12488;&#26908;&#32034;&#65281;<a class="anchor-link" href="#&#12523;&#12540;&#12488;&#26908;&#32034;&#65281;">&#182;</a></h4>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://files.slack.com/files-pri/T0465NP1Y-F0VD7C75M/2016-03-24__1_.png?pub_secret=6c639d9b46" alt="https://files.slack.com/files-pri/T0465NP1Y-F0VD7C75M/2016-03-24__1_.png"></p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#38996;&#12398;&#26908;&#32034;&#65281;">&#38996;&#12398;&#26908;&#32034;&#65281;<a class="anchor-link" href="#&#38996;&#12398;&#26908;&#32034;&#65281;">&#182;</a></h4><p>マイクロフォーサーズの魅力 ーmicro four thirds: <a href="http://www.four-thirds.org/jp/special/microftmerit/merit1.html">http://www.four-thirds.org/jp/special/microftmerit/merit1.html</a></p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://files.slack.com/files-pri/T0465NP1Y-F0VD0TTDL/121.jpg?pub_secret=dc4d778dd7" alt="https://files.slack.com/files-pri/T0465NP1Y-F0VD0TTDL/121.jpg"></p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#38899;&#27005;&#12398;&#26908;&#32034;">&#38899;&#27005;&#12398;&#26908;&#32034;<a class="anchor-link" href="#&#38899;&#27005;&#12398;&#26908;&#32034;">&#182;</a></h4>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://files.slack.com/files-pri/T0465NP1Y-F0VDK6SCS/2016-03-24__2_.png?pub_secret=61e3ed97a4" alt="https://files.slack.com/files-pri/T0465NP1Y-F0VDK6SCS/2016-03-24__2_.png?pub_secret=61e3ed97a4"></p>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-NLP">2. NLP<a class="anchor-link" href="#2.-NLP">&#182;</a></h3><h1 id="&#12300;&#12467;&#12531;&#12500;&#12517;&#12540;&#12479;&#12540;&#12395;&#35328;&#33865;&#12434;&#12431;&#12363;&#12425;&#12379;&#12427;&#25216;&#34899;&#12301;">&#12300;&#12467;&#12531;&#12500;&#12517;&#12540;&#12479;&#12540;&#12395;&#35328;&#33865;&#12434;&#12431;&#12363;&#12425;&#12379;&#12427;&#25216;&#34899;&#12301;<a class="anchor-link" href="#&#12300;&#12467;&#12531;&#12500;&#12517;&#12540;&#12479;&#12540;&#12395;&#35328;&#33865;&#12434;&#12431;&#12363;&#12425;&#12379;&#12427;&#25216;&#34899;&#12301;">&#182;</a></h1>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#38306;&#36899;&#12377;&#12427;&#12418;&#12398;">&#38306;&#36899;&#12377;&#12427;&#12418;&#12398;<a class="anchor-link" href="#&#38306;&#36899;&#12377;&#12427;&#12418;&#12398;">&#182;</a></h4><ul>
+<li>すもももももももものうち =&gt;李, も, 桃, も, 桃, の, うち &gt;&gt; <strong>形態素解析</strong></li>
+<li>すもももももももものうち =&gt; 李も，桃も，桃のうち &gt;&gt; <strong>構文解析</strong></li>
+<li>李も，桃も，桃なんやで、、、、仲良くしぃや &gt;&gt; <strong>意味解析</strong></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#12488;&#12500;&#12483;&#12463;&#20998;&#26512;">&#12488;&#12500;&#12483;&#12463;&#20998;&#26512;<a class="anchor-link" href="#&#12488;&#12500;&#12483;&#12463;&#20998;&#26512;">&#182;</a></h4><p>太宰治の文学の変化をTopic Modelで分析する　－NAOKI ORII'S BLOG: <a href="http://mrorii.github.io/images/dazai/lda.png">http://mrorii.github.io/images/dazai/lda.png</a></p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="http://mrorii.github.io/images/dazai/lda.png" alt="http://mrorii.github.io/images/dazai/lda.png"></p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Word2Vec">Word2Vec<a class="anchor-link" href="#Word2Vec">&#182;</a></h4><p>「word2vecによる自然言語処理」を出版しました　－西尾泰和のはてなダイアリー : <a href="http://d.hatena.ne.jp/nishiohirokazu/20140606/1401983909">http://d.hatena.ne.jp/nishiohirokazu/20140606/1401983909</a></p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="http://cdn-ak.f.st-hatena.com/images/fotolife/n/nishiohirokazu/20140606/20140606005140.png" alt="http://cdn-ak.f.st-hatena.com/images/fotolife/n/nishiohirokazu/20140606/20140606005140.png"></p>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-HCI">3. HCI<a class="anchor-link" href="#3.-HCI">&#182;</a></h3><h1 id="&#12300;&#20154;&#12392;&#12467;&#12531;&#12500;&#12517;&#12540;&#12479;&#12540;&#12434;&#12388;&#12394;&#12368;&#25216;&#34899;&#12301;">&#12300;&#20154;&#12392;&#12467;&#12531;&#12500;&#12517;&#12540;&#12479;&#12540;&#12434;&#12388;&#12394;&#12368;&#25216;&#34899;&#12301;<a class="anchor-link" href="#&#12300;&#20154;&#12392;&#12467;&#12531;&#12500;&#12517;&#12540;&#12479;&#12540;&#12434;&#12388;&#12394;&#12368;&#25216;&#34899;&#12301;">&#182;</a></h1>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#38306;&#36899;&#12377;&#12427;&#12418;&#12398;">&#38306;&#36899;&#12377;&#12427;&#12418;&#12398;<a class="anchor-link" href="#&#38306;&#36899;&#12377;&#12427;&#12418;&#12398;">&#182;</a></h4><ul>
+<li>人の動作を伝える &gt;&gt; <strong>センサ</strong></li>
+<li>意味のある動作を見つける &gt;&gt; <strong>データマイニング</strong></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Google-Glasses">Google Glasses<a class="anchor-link" href="#Google-Glasses">&#182;</a></h4><p>Google Glasses (Project Glass) : The Future of Human Computer Interaction? -USABILITYGEEK : <a href="http://usabilitygeek.com/google-glasses-project-glass-the-future-of-human-computer-interaction/">http://usabilitygeek.com/google-glasses-project-glass-the-future-of-human-computer-interaction/</a></p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="http://usabilitygeek.com/wp-content/uploads/2012/05/Google-Glasses-Project-Glass-The-Future-of-HCI1.jpg" alt="http://usabilitygeek.com/wp-content/uploads/2012/05/Google-Glasses-Project-Glass-The-Future-of-HCI1.jpg"></p>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#12300;&#12393;&#12398;&#12487;&#12540;&#12479;&#12434;&#12393;&#12358;&#12420;&#12387;&#12390;&#24847;&#21619;&#12389;&#12369;&#12427;&#12363;&#12301;">&#12300;&#12393;&#12398;&#12487;&#12540;&#12479;&#12434;&#12393;&#12358;&#12420;&#12387;&#12390;&#24847;&#21619;&#12389;&#12369;&#12427;&#12363;&#12301;<a class="anchor-link" href="#&#12300;&#12393;&#12398;&#12487;&#12540;&#12479;&#12434;&#12393;&#12358;&#12420;&#12387;&#12390;&#24847;&#21619;&#12389;&#12369;&#12427;&#12363;&#12301;">&#182;</a></h1>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#30740;&#31350;&#20998;&#37326;&#12395;&#12388;&#12356;&#12390;">&#30740;&#31350;&#20998;&#37326;&#12395;&#12388;&#12356;&#12390;<a class="anchor-link" href="#&#30740;&#31350;&#20998;&#37326;&#12395;&#12388;&#12356;&#12390;">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
 &lt;div id=&quot;study_junre&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   var dataset = [
@@ -460,193 +671,43 @@ createPie("#study_junre", dataset);
 </div>
 </div>
 
-</div>
-    </div></section><section>
-    
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#20808;&#36649;&#12398;&#30740;&#31350;&#20363;">&#20808;&#36649;&#12398;&#30740;&#31350;&#20363;<a class="anchor-link" href="#&#20808;&#36649;&#12398;&#30740;&#31350;&#20363;">&#182;</a></h4><ul>
-<li>クエリ遷移意図に基づく文書誘導検索　</li>
-<li>単語ベクトルの違いによるテキスト分割の精度比較と失敗分析</li>
+<h4 id="&#20808;&#36649;&#12398;&#30740;&#31350;&#20363;">&#20808;&#36649;&#12398;&#30740;&#31350;&#20363;<a class="anchor-link" href="#&#20808;&#36649;&#12398;&#30740;&#31350;&#20363;">&#182;</a></h4><h4 id="1.-IR">1. IR<a class="anchor-link" href="#1.-IR">&#182;</a></h4><ul>
+<li>クエリを変えたときの意図を察して、結果を変えるシステム　</li>
+<li>翻訳システムをつかった言語横断検索</li>
+</ul>
+<h4 id="2.-NLP">2. NLP<a class="anchor-link" href="#2.-NLP">&#182;</a></h4><ul>
+<li>単語ベクトルを用いたテキストの分割</li>
+<li>NNをつかって人格シミュレート</li>
+</ul>
+<h4 id="3.-HCI">3. HCI<a class="anchor-link" href="#3.-HCI">&#182;</a></h4><ul>
+<li>チームで検索ワードを共有して、コミュニケーションを活発にしよう</li>
+<li>睡眠状況をシェアしてみんなで健康を気遣う</li>
 </ul>
 
 </div>
 </div>
-</div><div style=display:none>
-    
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#20808;&#36649;&#12398;&#30740;&#31350;&#12434;&#24341;&#12365;&#32153;&#12356;&#12384;&#20154;&#25968;">&#20808;&#36649;&#12398;&#30740;&#31350;&#12434;&#24341;&#12365;&#32153;&#12356;&#12384;&#20154;&#25968;<a class="anchor-link" href="#&#20808;&#36649;&#12398;&#30740;&#31350;&#12434;&#24341;&#12365;&#32153;&#12356;&#12384;&#20154;&#25968;">&#182;</a></h3>
+<h3 id="&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#35328;&#35486;&#32232;">&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#35328;&#35486;&#32232;<a class="anchor-link" href="#&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#35328;&#35486;&#32232;">&#182;</a></h3>
 </div>
 </div>
-</div>
-    </div><div style=display:none>
-    
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
-&lt;div&gt;1&lt;/div&gt;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-
-<div class="output_html rendered_html output_subarea ">
-<div>1</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#30740;&#31350;&#29983;&#27963;">&#30740;&#31350;&#29983;&#27963;<a class="anchor-link" href="#&#30740;&#31350;&#29983;&#27963;">&#182;</a></h2>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#30740;&#31350;&#38306;&#36899;">&#30740;&#31350;&#38306;&#36899;<a class="anchor-link" href="#&#30740;&#31350;&#38306;&#36899;">&#182;</a></h3>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#21435;&#24180;&#12398;&#26332;&#26085;&#21029;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;">&#21435;&#24180;&#12398;&#26332;&#26085;&#21029;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;<a class="anchor-link" href="#&#21435;&#24180;&#12398;&#26332;&#26085;&#21029;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="14">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>火曜日 18:15 〜 Mゼミ</li>
-<li>水曜日 18:15 〜 Bゼミ</li>
-</ul>
-
-</div>
-</div>
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#30740;&#31350;&#12398;&#12383;&#12417;&#12398;&#12484;&#12540;&#12523;&#38306;&#36899;">&#30740;&#31350;&#12398;&#12383;&#12417;&#12398;&#12484;&#12540;&#12523;&#38306;&#36899;<a class="anchor-link" href="#&#30740;&#31350;&#12398;&#12383;&#12417;&#12398;&#12484;&#12540;&#12523;&#38306;&#36899;">&#182;</a></h3>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#12467;&#12511;&#12517;&#12491;&#12465;&#12540;&#12471;&#12519;&#12531;&#12484;&#12540;&#12523;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;">&#12467;&#12511;&#12517;&#12491;&#12465;&#12540;&#12471;&#12519;&#12531;&#12484;&#12540;&#12523;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;<a class="anchor-link" href="#&#12467;&#12511;&#12517;&#12491;&#12465;&#12540;&#12471;&#12519;&#12531;&#12484;&#12540;&#12523;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="17">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
-&lt;div id=&quot;comunication_tool&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  var dataset = [
-    {legend:&quot;Slack&quot;, value:9, color:&quot;#4FC3F7&quot;},
-    {legend:&quot;Mail&quot;, value:1, color:&quot;#4DD0E1&quot;}
-];
-createPie(&quot;#comunication_tool&quot;, dataset);
-&lt;/script&gt;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-
-<div class="output_html rendered_html output_subarea ">
-<div id="comunication_tool"></div>
-<script>
-  var dataset = [
-    {legend:"Slack", value:9, color:"#4FC3F7"},
-    {legend:"Mail", value:1, color:"#4DD0E1"}
-];
-createPie("#comunication_tool", dataset);
-</script>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#20351;&#29992;&#35328;&#35486;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;">&#20351;&#29992;&#35328;&#35486;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;<a class="anchor-link" href="#&#20351;&#29992;&#35328;&#35486;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;">&#182;</a></h3>
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="19">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
 &lt;div id=&quot;programming_language&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   var dataset = [
@@ -687,35 +748,243 @@ createPie("#programming_language", dataset);
 </div>
 </div>
 
-</div>
-    </div></section><section>
-    
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#12381;&#12398;&#20182;">&#12381;&#12398;&#20182;<a class="anchor-link" href="#&#12381;&#12398;&#20182;">&#182;</a></h3>
+<h3 id="&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#12467;&#12511;&#12517;&#12491;&#12465;&#12540;&#12471;&#12519;&#12531;&#32232;">&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#12467;&#12511;&#12517;&#12491;&#12465;&#12540;&#12471;&#12519;&#12531;&#32232;<a class="anchor-link" href="#&#20309;&#12434;&#20351;&#12387;&#12390;&#30740;&#31350;&#12375;&#12390;&#12427;&#12398;&#65311;&#65311;&#12467;&#12511;&#12517;&#12491;&#12465;&#12540;&#12471;&#12519;&#12531;&#32232;">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+&lt;div id=&quot;comunication_tool&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var dataset = [
+    {legend:&quot;Slack&quot;, value:7, color:&quot;#4FC3F7&quot;},
+    {legend:&quot;Conv&quot;, value:2, color:&quot;#4DD0E1&quot;},
+    {legend:&quot;Mail&quot;, value:1, color:&quot;#4DB6AC&quot;}
+];
+createPie(&quot;#comunication_tool&quot;, dataset);
+&lt;/script&gt;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div id="comunication_tool"></div>
+<script>
+  var dataset = [
+    {legend:"Slack", value:7, color:"#4FC3F7"},
+    {legend:"Conv", value:2, color:"#4DD0E1"},
+    {legend:"Mail", value:1, color:"#4DB6AC"}
+];
+createPie("#comunication_tool", dataset);
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slack">Slack<a class="anchor-link" href="#Slack">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://files.slack.com/files-pri/T0465NP1Y-F0VD5TGA0/2016-03-25.png?pub_secret=0daa0d6043" alt="https://files.slack.com/files-pri/T0465NP1Y-F0VD5TGA0/2016-03-25.png?pub_secret=0daa0d6043"></p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GitHub">GitHub<a class="anchor-link" href="#GitHub">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://files.slack.com/files-pri/T0465NP1Y-F0VD5TY84/2016-03-25__1_.png?pub_secret=72ce015941" alt="https://files.slack.com/files-pri/T0465NP1Y-F0VD5TY84/2016-03-25__1_.png?pub_secret=72ce015941"></p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#12503;&#12525;&#12472;&#12455;&#12463;&#12488;&#36914;&#34892;&#20013;-&#65288;&#20104;&#23450;&#65289;">&#12503;&#12525;&#12472;&#12455;&#12463;&#12488;&#36914;&#34892;&#20013; &#65288;&#20104;&#23450;&#65289;<a class="anchor-link" href="#&#12503;&#12525;&#12472;&#12455;&#12463;&#12488;&#36914;&#34892;&#20013;-&#65288;&#20104;&#23450;&#65289;">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#30740;&#31350;&#23460;">&#30740;&#31350;&#23460;<a class="anchor-link" href="#&#30740;&#31350;&#23460;">&#182;</a></h4><ul>
+<li>キッチンきれいにしよう</li>
+<li>復刻・映画鑑賞会</li>
+<li>コーヒーシステム最適可</li>
+<li>酒井研デジタルライブラリ</li>
+</ul>
+<h4 id="&#30740;&#31350;">&#30740;&#31350;<a class="anchor-link" href="#&#30740;&#31350;">&#182;</a></h4><ul>
+<li>WikiとかHPとかの改修</li>
+<li>アクセスログ解析(sensu + uchiwaとか)</li>
+<li>docker + hadoop + spark なスケールできるクラスタ環境</li>
+</ul>
+<p>などなど。。。。</p>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#30740;&#31350;&#29983;&#27963;">&#30740;&#31350;&#29983;&#27963;<a class="anchor-link" href="#&#30740;&#31350;&#29983;&#27963;">&#182;</a></h2>
 </div>
 </div>
 </div></section><section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#26009;&#29702;&#12472;&#12515;&#12531;&#12523;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;">&#26009;&#29702;&#12472;&#12515;&#12531;&#12523;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;<a class="anchor-link" href="#&#26009;&#29702;&#12472;&#12515;&#12531;&#12523;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;">&#182;</a></h3>
+<h3 id="&#24180;&#38291;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;">&#24180;&#38291;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;<a class="anchor-link" href="#&#24180;&#38291;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;">&#182;</a></h3>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="22">
-    
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4~7&#26376;">4~7&#26376;<a class="anchor-link" href="#4~7&#26376;">&#182;</a></h4><ul>
+<li>リサーチ期間</li>
+<li>週１のゼミで論文発表がメイン</li>
+</ul>
+<h4 id="&#22799;&#20241;&#12415;">&#22799;&#20241;&#12415;<a class="anchor-link" href="#&#22799;&#20241;&#12415;">&#182;</a></h4><ul>
+<li><strong>夏合宿</strong>が50パーセントの確率であるよ！</li>
+<li>中間発表的な &gt;&gt; <strong>研究テーマ発表</strong></li>
+</ul>
+<h4 id="10~12&#26376;">10~12&#26376;<a class="anchor-link" href="#10~12&#26376;">&#182;</a></h4><ul>
+<li>システムつくったり、実験したり</li>
+<li>論文かいたり</li>
+<li>DEIM(学会)に投稿したりする</li>
+</ul>
+<h4 id="1&#26376;&#12539;2&#26376;">1&#26376;&#12539;2&#26376;<a class="anchor-link" href="#1&#26376;&#12539;2&#26376;">&#182;</a></h4><p>└(┐┘)┌研究!!研究!!└(┐└(┐┘└(┐┘)┌)┌┘)┌ｳｵｵｫﾝ!!!!研究が加速するｳｳｳｳｳｳ三╰( ^o^)╮-=ﾆ= =͟͟͞͞=͟͟͞͞=͟͟͞͞(┐┘)┌ｿﾂﾛｫｵｵｵｵｵｵﾝwwwww</p>
+<p>(✌'ω')✌</p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#36913;&#21002;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;">&#36913;&#21002;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;<a class="anchor-link" href="#&#36913;&#21002;&#12473;&#12465;&#12472;&#12517;&#12540;&#12523;">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>(月)  進捗が迫ってくる</li>
+<li>(火) <strong>Mゼミ</strong> （+ 料理）</li>
+<li>(水) <strong>Bゼミ</strong> （＋料理）</li>
+<li>(木) (((。ε°)))</li>
+<li>(金) 進捗錬成　+　<strong>週報</strong></li>
+<li>(土) 映画鑑賞会とか筋トレとか？？</li>
+<li>(日) (((。3°)))</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#36942;&#21435;&#12395;&#12354;&#12387;&#12383;&#12452;&#12505;&#12531;&#12488;&#12392;&#12363;">&#36942;&#21435;&#12395;&#12354;&#12387;&#12383;&#12452;&#12505;&#12531;&#12488;&#12392;&#12363;<a class="anchor-link" href="#&#36942;&#21435;&#12395;&#12354;&#12387;&#12383;&#12452;&#12505;&#12531;&#12488;&#12392;&#12363;">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>夏合宿・卒業旅行</li>
+<li>新入生Welcome Party！</li>
+<li>おつかれパーティ</li>
+<li>ハッカソン * 2</li>
+<li>演奏会 + 学科パーティ</li>
+<li>週刊映画鑑賞部</li>
+<li>筋トレ部</li>
+<li>DIY部</li>
+<li>料理部
+とか・・・・・・・・</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#12471;&#12455;&#12501;&#21215;&#38598;">&#12471;&#12455;&#12501;&#21215;&#38598;<a class="anchor-link" href="#&#12471;&#12455;&#12501;&#21215;&#38598;">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
 &lt;div id=&quot;cook_junre&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   var dataset = [
@@ -752,25 +1021,95 @@ createPie("#cook_junre", dataset);
 </div>
 </div>
 
-</div>
-    </div></section><section>
-    
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#27005;&#22120;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;">&#27005;&#22120;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;<a class="anchor-link" href="#&#27005;&#22120;&#21106;&#21512;&#20870;&#12464;&#12521;&#12501;">&#182;</a></h3>
+<h4 id="&#12471;&#12455;&#12501;&#12364;&#26412;&#27671;&#20986;&#12375;&#12383;&#12392;&#12365;">&#12471;&#12455;&#12501;&#12364;&#26412;&#27671;&#20986;&#12375;&#12383;&#12392;&#12365;<a class="anchor-link" href="#&#12471;&#12455;&#12501;&#12364;&#26412;&#27671;&#20986;&#12375;&#12383;&#12392;&#12365;">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="24">
-    
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://files.slack.com/files-pri/T0465NP1Y-F0TTM0LKZ/party.jpg?pub_secret=cb4fb9a9eb" alt="https://files.slack.com/files-pri/T0465NP1Y-F0TTM0LKZ/party.jpg?pub_secret=cb4fb9a9eb"></p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#22909;&#12365;&#12394;&#12362;&#37202;&#12399;&#65311;">&#22909;&#12365;&#12394;&#12362;&#37202;&#12399;&#65311;<a class="anchor-link" href="#&#22909;&#12365;&#12394;&#12362;&#37202;&#12399;&#65311;">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+&lt;div id=&quot;alchol_junre&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var dataset = [
+    {legend:&quot;日本酒&quot;, value:1, color:&quot;#4FC3F7&quot;},
+    {legend:&quot;ワイン&quot;, value:1, color:&quot;#4DD0E1&quot;},
+    {legend:&quot;ウィスキー&quot;, value: 1, color: &quot;#4DB6AC&quot;}
+];
+createPie(&quot;#alchol_junre&quot;, dataset);
+&lt;/script&gt;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div id="alchol_junre"></div>
+<script>
+  var dataset = [
+    {legend:"日本酒", value:1, color:"#4FC3F7"},
+    {legend:"ワイン", value:1, color:"#4DD0E1"},
+    {legend:"ウィスキー", value: 1, color: "#4DB6AC"}
+];
+createPie("#alchol_junre", dataset);
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#20309;&#12363;&#24382;&#12369;&#12427;&#20154;&#65417;&#65404;">&#20309;&#12363;&#24382;&#12369;&#12427;&#20154;&#65417;&#65404;<a class="anchor-link" href="#&#20309;&#12363;&#24382;&#12369;&#12427;&#20154;&#65417;&#65404;">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
 &lt;div id=&quot;instrument_junre&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   var dataset = [
@@ -817,212 +1156,80 @@ createPie("#instrument_junre", dataset);
 </div>
 </div>
 
-</div>
-    </div></section><section>
-    
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#22909;&#12365;&#12394;&#12362;&#37202;&#21106;&#21512;&#12464;&#12521;&#12501;">&#22909;&#12365;&#12394;&#12362;&#37202;&#21106;&#21512;&#12464;&#12521;&#12501;<a class="anchor-link" href="#&#22909;&#12365;&#12394;&#12362;&#37202;&#21106;&#21512;&#12464;&#12521;&#12501;">&#182;</a></h3>
+<h2 id="&#37202;&#20117;&#30740;&#31350;&#23460;&#12398;&#12513;&#12522;&#12483;&#12488;">&#37202;&#20117;&#30740;&#31350;&#23460;&#12398;&#12513;&#12522;&#12483;&#12488;<a class="anchor-link" href="#&#37202;&#20117;&#30740;&#31350;&#23460;&#12398;&#12513;&#12522;&#12483;&#12488;">&#182;</a></h2>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="26">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="k">html</span>
-&lt;div id=&quot;alchol_junre&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  var dataset = [
-    {legend:&quot;日本酒&quot;, value:1, color:&quot;#4FC3F7&quot;},
-    {legend:&quot;ワイン&quot;, value:1, color:&quot;#4DD0E1&quot;},
-    {legend:&quot;ウィスキー&quot;, value: 1, color: &quot;#4DB6AC&quot;}
-];
-createPie(&quot;#alchol_junre&quot;, dataset);
-&lt;/script&gt;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-
-<div class="output_html rendered_html output_subarea ">
-<div id="alchol_junre"></div>
-<script>
-  var dataset = [
-    {legend:"日本酒", value:1, color:"#4FC3F7"},
-    {legend:"ワイン", value:1, color:"#4DD0E1"},
-    {legend:"ウィスキー", value: 1, color: "#4DB6AC"}
-];
-createPie("#alchol_junre", dataset);
-</script>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#30740;&#31350;&#20197;&#22806;&#12391;&#12393;&#12435;&#12394;&#12371;&#12392;&#12375;&#12390;&#12427;&#65311;">&#30740;&#31350;&#20197;&#22806;&#12391;&#12393;&#12435;&#12394;&#12371;&#12392;&#12375;&#12390;&#12427;&#65311;<a class="anchor-link" href="#&#30740;&#31350;&#20197;&#22806;&#12391;&#12393;&#12435;&#12394;&#12371;&#12392;&#12375;&#12390;&#12427;&#65311;">&#182;</a></h2>
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="28">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>(月)　進捗錬成part2</li>
-<li>(火)　授業＋18:00~Mゼミ</li>
-<li>(水)　授業＋18:00~Bゼミ + 夕食会</li>
-<li>(木)　映画鑑賞会</li>
-<li>(金)　進捗錬成part1 + 週報</li>
-<li>(土)　たまに筋トレ</li>
-</ul>
+<h2 id="&#12539;&#26178;&#38291;&#12364;&#12383;&#12367;&#12373;&#12435;">&#12539;&#26178;&#38291;&#12364;&#12383;&#12367;&#12373;&#12435;<a class="anchor-link" href="#&#12539;&#26178;&#38291;&#12364;&#12383;&#12367;&#12373;&#12435;">&#182;</a></h2><h2 id="&#12539;&#12392;&#12395;&#12363;&#12367;&#33258;&#30001;">&#12539;&#12392;&#12395;&#12363;&#12367;&#33258;&#30001;<a class="anchor-link" href="#&#12539;&#12392;&#12395;&#12363;&#12367;&#33258;&#30001;">&#182;</a></h2><h2 id="&#12539;&#12469;&#12509;&#12540;&#12488;&#12364;&#25163;&#21402;&#12356;&#65288;&#12399;&#12378;&#12384;&#65289;">&#12539;&#12469;&#12509;&#12540;&#12488;&#12364;&#25163;&#21402;&#12356;&#65288;&#12399;&#12378;&#12384;&#65289;<a class="anchor-link" href="#&#12539;&#12469;&#12509;&#12540;&#12488;&#12364;&#25163;&#21402;&#12356;&#65288;&#12399;&#12378;&#12384;&#65289;">&#182;</a></h2><p>ブラックそう。。。。。。。。。</p>
 
 </div>
 </div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#12393;&#12435;&#12394;&#30740;&#31350;&#23460;&#12395;&#12375;&#12390;&#12356;&#12365;&#12383;&#12356;&#12363;&#65281;">&#12393;&#12435;&#12394;&#30740;&#31350;&#23460;&#12395;&#12375;&#12390;&#12356;&#12365;&#12383;&#12356;&#12363;&#65281;<a class="anchor-link" href="#&#12393;&#12435;&#12394;&#30740;&#31350;&#23460;&#12395;&#12375;&#12390;&#12356;&#12365;&#12383;&#12356;&#12363;&#65281;">&#182;</a></h2>
+</div></div></section></section>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="30">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>docker + hadoop + elasticsearch</li>
-<li>インテリア</li>
-<li>酒井研デジタルライブラリ</li>
-<li>酒井研リポジトリ（ドキュメントをしっかり残して公開？）</li>
-<li>あまたの部活たち・・・</li>
-<li>たぶんやろうと思えば何でもできる</li>
-</ul>
-
-</div>
-</div>
-</div>
-    </div><div class="fragment" data-fragment-index="30">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-        </div><div class="fragment" data-fragment-index="30">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-        </div></section>
-    </section>
-</div>
-</div>
-
-<script src="reveal.js/lib/js/head.min.js"></script>
-
-<script src="reveal.js/js/reveal.js"></script>
 
 <script>
 
-// Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-Reveal.initialize({
-controls: true,
-progress: true,
-history: true,
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
 
-theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+    function(head, Reveal){
 
-// Optional libraries used to extend on reveal.js
-dependencies: [
-{ src: "reveal.js/lib/js/classList.js", condition: function() { return !document.body.classList; } },
-{ src: "reveal.js/plugin/notes/notes.js", async: true, condition: function() { return !!document.body.classList; } }
-]
-});
-</script>
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration -->
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
 
-<script>
-Reveal.addEventListener( 'slidechanged', function( event ) {
-  window.scrollTo(0,0);
-  MathJax.Hub.Rerender(event.currentSlide);
-});
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        var update_scroll = function(event){
+          $(".reveal").scrollTop(0);
+        };
+
+        Reveal.addEventListener('slidechanged', update_scroll);
+
+    }
+);
+
 </script>
 
 </body>
