@@ -1,5 +1,7 @@
 # openhouse
 
+Please look [this page](http://sakai-lab.github.io/openhouse/)!
+
 ## Dependecies
 
 * ipython
@@ -7,9 +9,18 @@
 
 ## Preliminary
 
+### IPython
+
 ```
-pip install ipython # if you not
-npm install
+pip install ipython
+pip install jupyter
+```
+
+### Gulp
+
+```
+npm install -g gulp
+npm install .
 ```
 
 ## Usage
